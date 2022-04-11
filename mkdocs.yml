@@ -1,0 +1,6 @@
+site_name: PERCS API
+# theme: readthedocs
+nav:
+  - Get Started: index.md
+  - Component API: component-api.md
+  - Javascript API: javascript-api.md

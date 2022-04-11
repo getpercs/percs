@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>PERCS API</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">PERCS API</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Get Started</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="component-api/" class="nav-link">Component API</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="javascript-api/" class="nav-link">Javascript API</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="audiences/" class="dropdown-item">Audiences</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="component-api/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#offer-types" class="nav-link">Offer Types</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#events" class="nav-link">Events</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#url-content" class="nav-link">URL Content</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="getting-started">Getting Started</h1>
+<ul>
+<li>Setup an account<ul>
+<li>Reach out to our support team for access to the beta</li>
+</ul>
+</li>
+<li>Choose an integration method<ul>
+<li><a href="component-api/">Component API</a></li>
+<li><a href="javascript-api/">Javascript API</a></li>
+</ul>
+</li>
+<li>Create an audience and offer</li>
+</ul>
+<h1 id="offer-types">Offer Types</h1>
+<h2 id="events">Events</h2>
+<p>Generate and redeem unique QR codes for each token in your audience.  We provide an app to scan the generated QR codes to validate access at the event.  No development work is required.</p>
+<h2 id="url-content">URL Content</h2>
+<p>Your NFT holders are given access to a private URL once they have verified ownership.</p>
+<p>Redirected URL with include get parameters and a signature that is verifiable with a public key for your account.</p>
+<ul>
+<li><code>offer</code>: the ID for the offer</li>
+<li><code>contract</code>: the contract address for the verified token</li>
+<li><code>token</code>: the token id for the verified token</li>
+<li><code>sig</code>: the PKI signature for the URL</li>
+</ul>
+<p>Sample URL structure: https://api.getpercs.com/test-redemption-url?offer=1&amp;contract=0x7ab2352b1d2e185560494d5e577f9d3c238b78c5&amp;token=1220&amp;sig=6W64XOq2%2BSMP5Dvh0vHiDJ9K%2B5fnIpHIZrWiI1pvMMlGJpcmVsoTsUMSqP%2F1Sks4PnsUkVTZ762Vn1eYD74vAA%3D%3D</p>
+<p>You can verify the URL on the server or client with a public key check.  Sample Node.js server code:</p>
+<pre><code class="language-js">import { createPublicKey, verify } from &quot;crypto&quot;
+
+const publicKey = createPublicKey(YOUR_PUBLIC_KEY)
+
+/**
+ * @param url The fully qualified URL for the request (host should match the URL configured for your offer)
+ */
+function verifyRequestUrl(url) {
+    url = new URL(url);
+    const signature = url.searchParams.get(&quot;sig&quot;);
+    url.searchParams.delete(&quot;sig&quot;);
+
+    if (verify(null, Buffer.from(url.toString()), publicKey, Buffer.from(signature, &quot;base64&quot;))) {
+        // TODO: Signature is valid, return the content for the given offer
+    } else {
+        // TODO: Signature is invalid, display error
+    }
+}
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.3.0
+Build Date UTC : 2022-04-11 16:18:14.458284+00:00
+-->
